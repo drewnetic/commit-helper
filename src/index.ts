@@ -1,0 +1,1 @@
+console.log("🚀 Commit Helper is running!")
