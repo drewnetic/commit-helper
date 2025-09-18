@@ -1,0 +1,28 @@
+{
+  "name": "commit-helper-ts",
+  "version": "0.1.0",
+  "description": "A lightweight CLI tool to generate Conventional Commit messages automatically. Built with TypeScript, functional programming and clean architecture principles.",
+  "main": "dist/index.js",
+  "bin": {
+    "commit-helper": "dist/index.js"
+  },
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "typescript",
+    "cli",
+    "conventional-commits",
+    "nodejs",
+    "functional-programming"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "ts-node": "^10.9.2"
+  }
+}
