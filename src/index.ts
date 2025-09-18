@@ -1,3 +1,4 @@
+import { generateCommitMessage } from "./core/commitMessage";
 import { getStagedFiles } from "./infra/git";
 
 const files = getStagedFiles()
@@ -7,4 +8,8 @@ if(files.length === 0) {
 } else {
   console.log("📂 Staged files:")
   files.forEach((file) => console.log(" -", file))
+
+  const suggestion = generateCommitMessage(files)
+  console.log("\n💡 Suggested commit message:")
+  console.log(suggestion)
 }
