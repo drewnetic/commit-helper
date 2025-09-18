@@ -13,7 +13,7 @@ export const getStagedFiles = (): string[] => {
     return output
     .split("\n")
     .map((file) => file.trim())
-    .filter(Boolean) // remove linhas vazias
+    .filter(Boolean)
   } catch(error) {
     console.log("❌ Failed to get staged files. Make sure you are in a Git repo.")
     return []
