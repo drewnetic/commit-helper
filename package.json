@@ -18,7 +18,7 @@
     "nodejs",
     "functional-programming"
   ],
-  "author": "Seu Nome",
+  "author": "Andrew Gouvêa (https://github.com/drewnetic)",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.6.2",
