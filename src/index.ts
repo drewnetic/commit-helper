@@ -1,6 +1,7 @@
 import { runInteractiveMode } from './cli/interactive';
 import { generateCommitMessage } from './core/commitMessage';
 import { getStagedFiles } from './infra/git';
+import { runGitCommit } from './infra/commit';
 
 const files = getStagedFiles();
 
@@ -13,15 +14,21 @@ const files = getStagedFiles();
   console.log('📂 Staged files:');
   files.forEach((file: string) => console.log(' -', file));
 
-  const suggestion = generateCommitMessage(files);
-  console.log('\n💡 Suggested commit message:');
-  console.log(suggestion);
+  let finalMessage: string;
 
-  const interactive = process.argv.includes('--interactive');
-
-  if (interactive) {
-    const finalMessage = await runInteractiveMode();
-    console.log('\n✅ Final commit message:');
+  if (process.argv.includes('--interactive')) {
+    finalMessage = await runInteractiveMode();
+  } else {
+    finalMessage = generateCommitMessage(files);
+    console.log('\n💡 Suggested commit message:');
     console.log(finalMessage);
+  }
+
+  if (process.argv.includes('--commit')) {
+    runGitCommit(finalMessage);
+  } else {
+    console.log(
+      '\n👉 Run again with --commit to apply this message automatically',
+    );
   }
 })();
